@@ -6,7 +6,7 @@ import java.io.*;
 public class LeerArchivo {
     
     public String leer()throws Exception{
-        File file=new File("E:\\archivito.txt");
+        File file=new File("C:\\Users\\Jorge Chávez\\Documents\\NetBeansProjects\\texto.txt");
         FileInputStream fis=new FileInputStream(file);
         StringBuilder sb=new StringBuilder();//StringBuilder es acumulable de lo viejo aumenta lo nuevo.
         int ch=0;

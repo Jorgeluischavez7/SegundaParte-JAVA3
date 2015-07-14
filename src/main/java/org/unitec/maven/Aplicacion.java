@@ -16,8 +16,6 @@ public class Aplicacion {
         LeerArchivo objeto=new LeerArchivo();
         System.out.println(objeto.leer());
         
-        
-        
     }
     
 }
