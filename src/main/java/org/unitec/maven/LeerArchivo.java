@@ -3,7 +3,9 @@ package org.unitec.maven;
 
 import java.io.*;
 
-public class LeerArchivo {
+public class LeerArchivo implements Leer{
+    
+    @Override//polimorfismo. se sobre escrible el metodo leer.
     
     public String leer()throws Exception{
         File file=new File("C:\\Users\\Jorge Chávez\\Documents\\NetBeansProjects\\texto.txt");
