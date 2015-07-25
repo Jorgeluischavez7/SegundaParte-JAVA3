@@ -19,7 +19,7 @@ public class DAOProducto {
     public static void guardar(Producto p)throws Exception{
         SessionFactory fac= HibernateUtilidades.getSessionFactory();
         Session ses= fac.openSession();
-        Transaction tranza= ses.begin.Transaction();
+        Transaction tranza= ses.beginTransaction();
         //guardamos.
         ses.save(p);
         ses.close();
