@@ -6,6 +6,8 @@
     <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
     <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/mysql?zeroDateTimeBehavior=convertToNull</property>
     <property name="hibernate.connection.username">root</property>
-    <mapping class="unitec.maven maven.boot.Producto"></mapping>
+    <mapping class="unitec.maven.boot.Tarjeta"></mapping>
+    <mapping class="unitec.maven.boot.Producto"></mapping>
+    <mapping class="unitec.maven.boot.Gastos"></mapping>
   </session-factory>
 </hibernate-configuration>

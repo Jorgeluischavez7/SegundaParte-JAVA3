@@ -2,7 +2,7 @@
 package org.unitec.maven;
 
 import java.util.ArrayList;
-import java.util.List;
+import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -39,12 +39,14 @@ public class DAOTarjeta {
            ses.delete(tar);
            cerrarSesion();
        }
-       public List buscarTodosTar()throws Exception{
-          List tarjeta= ses.createCriteria(Tarjeta.class).list();
-        return tarjeta;
+       public ArrayList<Tarjeta> buscarTodosTar()throws Exception{
+        Criteria cri= ses.createCriteria(Tarjeta.class);
+        ArrayList<Tarjeta> gastos=(ArrayList<Tarjeta>)cri.list();
+        cerrarSesion();
+        return gastos;
     }
         public Tarjeta buscarPorIdTar(Integer id)throws Exception{
-         Tarjeta tar=       (Tarjeta) ses.createCriteria(Tarjeta.class).add(Restrictions.idEq(id)).uniqueResult();
+         Tarjeta tar=(Tarjeta) ses.createCriteria(Tarjeta.class).add(Restrictions.idEq(id)).uniqueResult();
            
         return tar;
         
