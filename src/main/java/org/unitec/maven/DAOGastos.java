@@ -1,10 +1,13 @@
 
 package org.unitec.maven;
 
+import java.util.ArrayList;
 import java.util.List;
+import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
+import org.hibernate.criterion.Restrictions;
 
 
 public class DAOGastos {
@@ -32,15 +35,19 @@ public class DAOGastos {
         ses.update(gas);
         cerrarSesion();
     }
-       public void borrarGas(Gastos gas)throws Exception{
-           ses.delete(gas);
-           cerrarSesion();
+       public void borrarGas(Integer id ) throws Exception{
+        Gastos g = (Gastos) ses.createCriteria(Gastos.class).add(Restrictions.idEq(id)).uniqueResult();
+        ses.delete(g);
+        cerrarSesion();
        }
-       public List<Gastos> buscarTodosGas()throws Exception{
-        List<Gastos> gastos= ses.createCriteria(Gastos.class).list();
+     public Gastos buscarPorIdGas(Integer id)throws Exception{
+         Gastos gas=(Gastos) ses.createCriteria(Gastos.class).add(Restrictions.idEq(id)).uniqueResult(); 
+        return gas;
+    }
+        public ArrayList<Gastos> buscarTodosGas()throws Exception{
+        Criteria cri= ses.createCriteria(Gastos.class);
+        ArrayList<Gastos> gastos=(ArrayList<Gastos>)cri.list();
+        cerrarSesion();
         return gastos;
     }
-        public Tarjeta buscarPorIdGas(Integer id)throws Exception{
-        return null;
-        }
 }

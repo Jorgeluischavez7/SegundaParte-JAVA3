@@ -15,9 +15,10 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @RequestMapping("/")
 public class ControladorProducto {
     @RequestMapping(value="/producto/{nombre}/{costo}/{unidades}",method=RequestMethod.POST, headers ={"Accept=text/html"})
-    @ResponseBody String guardar(@PathVariable String nombre, @PathVariable Float costo,@PathVariable Integer unidades)throws Exception{
+    @ResponseBody String guardarProducto(@PathVariable String nombre, @PathVariable Float costo,@PathVariable Integer unidades)throws Exception{
     DAOProducto da=new DAOProducto();
         Producto p=new Producto();
+   
     p.setCosto(costo);
     p.setNombre(nombre);
     p.setUnidades(unidades);

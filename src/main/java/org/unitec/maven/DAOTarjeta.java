@@ -35,10 +35,12 @@ public class DAOTarjeta {
         ses.update(tar);
         cerrarSesion();
     }
-       public void borrarTar(Tarjeta tar)throws Exception{
-           ses.delete(tar);
-           cerrarSesion();
-       }
+      public void borrarTar(Integer id ) throws Exception{
+        Tarjeta t = (Tarjeta) ses.createCriteria(Tarjeta.class).add(Restrictions.idEq(id)).uniqueResult();
+        ses.delete(t);
+        cerrarSesion();
+        
+    }
        public ArrayList<Tarjeta> buscarTodosTar()throws Exception{
         Criteria cri= ses.createCriteria(Tarjeta.class);
         ArrayList<Tarjeta> gastos=(ArrayList<Tarjeta>)cri.list();
